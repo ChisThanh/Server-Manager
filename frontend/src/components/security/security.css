@@ -1,0 +1,583 @@
+/* Security panel (prefix: sec-) */
+.sec-body {
+  margin-top: 14px;
+}
+.sec-small {
+  font-size: 11.5px;
+}
+.sec-mt {
+  margin-top: 10px;
+}
+.sec-mb {
+  margin-bottom: 12px;
+}
+.sec-pad {
+  padding: 12px 14px;
+}
+.sec-wrap {
+  white-space: normal;
+  word-break: break-word;
+}
+.sec-grid2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 1100px) {
+  .sec-grid2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.sec-pre {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  font-size: 12px;
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 8px 0 0;
+  user-select: text;
+}
+.sec-warnbox {
+  border-color: color-mix(in srgb, var(--warn) 45%, var(--border));
+  color: var(--fg-1);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.sec-warnbox svg {
+  color: var(--warn);
+  flex: none;
+  margin-top: 2px;
+}
+.sec-list {
+  margin: 8px 0;
+  padding-left: 18px;
+  line-height: 1.7;
+}
+.sec-ic.ok {
+  color: var(--ok);
+}
+.sec-ic.warn {
+  color: var(--warn);
+}
+.sec-ic.crit {
+  color: var(--err);
+}
+.sec-ic.info {
+  color: var(--accent);
+}
+.sec-ic.muted {
+  color: var(--fg-2);
+}
+.sec-btn-row {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.sec-seg {
+  width: auto;
+  flex: none;
+}
+.sec-seg button {
+  padding: 0 12px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.sec-seg-sm {
+  flex: none;
+}
+.sec-seg-sm button {
+  padding: 0 10px;
+  white-space: nowrap;
+}
+.sec-count {
+  font-size: 10.5px;
+  background: var(--bg-3);
+  border-radius: 8px;
+  padding: 0 6px;
+  color: var(--fg-1);
+}
+.sec-dot-on {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+  display: inline-block;
+}
+.sec-subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-1);
+  margin: 4px 0 8px;
+}
+
+/* Overview */
+.sec-ov-head {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.sec-score {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid var(--fg-2);
+  flex: none;
+}
+.sec-score.ok {
+  border-color: var(--ok);
+}
+.sec-score.warn {
+  border-color: var(--warn);
+}
+.sec-score.crit {
+  border-color: var(--err);
+}
+.sec-score-num {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.sec-score-lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--fg-2);
+  margin-top: 4px;
+}
+.sec-ov-meta {
+  min-width: 0;
+}
+.sec-ov-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.sec-ov-counts {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.sec-checks {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.sec-check {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.sec-check.ok {
+  border-left-color: var(--ok);
+}
+.sec-check.warn {
+  border-left-color: var(--warn);
+}
+.sec-check.crit {
+  border-left-color: var(--err);
+}
+.sec-check.info {
+  border-left-color: var(--accent);
+}
+.sec-check > svg {
+  flex: none;
+  margin-top: 1px;
+}
+.sec-check-body {
+  flex: 1;
+  min-width: 0;
+}
+.sec-check-title {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600;
+}
+.sec-check-msg {
+  margin-top: 3px;
+  color: var(--fg-1);
+}
+.sec-check-fix {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--fg-2);
+  border-left: 2px solid var(--border-strong);
+  padding-left: 8px;
+}
+
+/* SSH */
+.sec-form {
+  display: grid;
+  gap: 2px;
+}
+.sec-frow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 7px 8px;
+  border-radius: 6px;
+}
+.sec-frow:hover {
+  background: var(--bg-1);
+}
+.sec-frow.changed {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.sec-flabel {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+/* Fixed-width control column: every control starts and ends at the same x;
+   on rows with a "risk" badge the control gives up the badge's room. */
+.sec-fctl {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  /* same width on every row (so controls line up), shrinking in a narrow column */
+  flex: 0 1 230px;
+  min-width: 150px;
+}
+.sec-fctl .ui-select,
+.sec-fctl .input {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}
+.sec-fctl > :not(.ui-select):not(.input) {
+  flex: none;
+}
+.sec-fctl .input.sec-num,
+.sec-num {
+  flex: none;
+  width: 90px;
+}
+.sec-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.sec-port-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.sec-chip-x {
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;
+}
+.sec-result {
+  display: grid;
+  gap: 6px;
+}
+.sec-result svg {
+  vertical-align: -2px;
+}
+
+/* Keys */
+.sec-user-select {
+  min-width: 200px;
+}
+.sec-textarea {
+  resize: vertical;
+  min-height: 70px;
+  font-size: 12px;
+}
+
+/* Firewall */
+.sec-fw-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.sec-policy-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.sec-policy {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+}
+.sec-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 14px;
+}
+.sec-fwd-list {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+.sec-fwd-label {
+  width: 110px;
+  flex: none;
+  color: var(--fg-2);
+  font-size: 12px;
+  padding-top: 3px;
+}
+.sec-fwd-list .list-rows {
+  flex: 1;
+}
+
+/* Ports */
+.sec-group-row td {
+  background: var(--bg-1);
+  padding-top: 8px;
+}
+
+/* Events */
+.sec-card-warn {
+  border-color: color-mix(in srgb, var(--warn) 50%, var(--border));
+}
+.sec-card-text {
+  font-size: 16px;
+}
+.sec-row-new td {
+  background: color-mix(in srgb, var(--warn) 8%, transparent);
+}
+.sec-jails {
+  display: grid;
+  gap: 10px;
+}
+.sec-jail-head {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+/* Users */
+.sec-admin {
+  color: var(--warn);
+  margin-left: 4px;
+  vertical-align: -1px;
+}
+.sec-chip-primary {
+  opacity: 0.75;
+}
+.sec-chip-admin {
+  border-color: color-mix(in srgb, var(--warn) 50%, var(--border));
+}
+.sec-checks-col {
+  justify-content: center;
+  gap: 8px;
+}
+.sec-group-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 6px 12px;
+  max-height: 320px;
+  overflow: auto;
+}
+
+/* ---------- IP access ---------- */
+.sec-acc {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sec-acc-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-bottom: 8px;
+}
+.sec-acc-facts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+.sec-acc-fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+.sec-acc-ok {
+  color: var(--ok);
+}
+.sec-acc-hint {
+  margin-bottom: 8px;
+}
+.sec-acc .cards {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  margin: 4px 0 14px;
+}
+.sec-acc-bar {
+  margin-bottom: 8px;
+}
+.sec-acc-bar > .input {
+  flex: 0 1 220px;
+}
+.sec-acc-table td,
+.sec-acc-table th {
+  vertical-align: middle;
+}
+/* Opaque (a translucent tint would show the cells' different underlays). */
+.sec-acc-table tr.picked,
+.sec-acc-table tr.picked td,
+.sec-acc-table tr.picked:hover td {
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg-1));
+}
+/* Bulk actions for the selected rows, in place of the toolbar's tail. */
+.sec-acc-selbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px 8px 6px 12px;
+  margin-bottom: 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-radius: 8px;
+  background: var(--accent-bg);
+  font-size: 12.5px;
+}
+.sec-acc-selbar .grow {
+  flex: 1;
+}
+.sec-acc-ck {
+  width: 30px;
+  padding-right: 0 !important;
+}
+.sec-acc-ck input {
+  display: block;
+}
+.sec-acc-act {
+  width: 1%;
+  white-space: nowrap;
+}
+.sec-acc-btns {
+  display: flex;
+  justify-content: flex-end;
+}
+.sec-acc-more {
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+  border-top: 1px solid var(--border);
+}
+.sec-acc-empty {
+  padding: 4px 0 6px;
+  font-size: 12.5px;
+}
+.sec-acc-app {
+  font-size: 10px;
+  padding: 0 5px;
+  color: var(--accent);
+}
+.sec-acc-lock {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-1);
+}
+.sec-acc-lock-text {
+  flex: 1 1 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.sec-acc-lock-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.sec-acc-warn {
+  color: var(--warn);
+}
+.sec-acc-f2b-missing {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 12px 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 8px;
+}
+.sec-acc-f2b-missing .muted {
+  flex: 1 1 320px;
+}
+.sec-acc-f2b-state {
+  margin-bottom: 8px;
+}
+.sec-acc-presets {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.sec-acc-f2b-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  column-gap: 12px;
+}
+.sec-acc-f2b-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 18px;
+  margin-bottom: 6px;
+}
+.sec-acc-f2b-sum {
+  margin-bottom: 10px;
+}
+.sec-acc-f2b-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.sec-acc-tips {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--fg-1);
+}
+.sec-subtitle-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sec-subtitle-row .grow {
+  flex: 1;
+}

@@ -1,0 +1,45 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please remove hostnames, IPs and anything secret from logs and screenshots.
+        Security issue? Don't file it here — see SECURITY.md.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open …
+        2. Click …
+        3. See error …
+  - type: input
+    id: desktop
+    attributes:
+      label: Your OS
+      placeholder: macOS 15.2 / Windows 11 / Ubuntu 24.04 desktop
+    validations:
+      required: true
+  - type: input
+    id: server
+    attributes:
+      label: Server distro
+      placeholder: Ubuntu 24.04, Debian 12, Rocky 9, Alpine 3.21…
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error message, output or screenshots
+      render: text

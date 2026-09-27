@@ -1,0 +1,461 @@
+/* Databases module (prefix: db-) */
+
+.db-page {
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+}
+.db-layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  min-height: 0;
+}
+/* Narrow panel: the target list becomes a horizontal strip on top. */
+@container (max-width: 900px) {
+  .db-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .db-layout > * {
+    /* a scrollable strip would otherwise shrink to nothing next to tall content */
+    flex-shrink: 0;
+  }
+  .db-targets {
+    flex-direction: row !important;
+    overflow-x: auto;
+    position: static !important;
+    padding-bottom: 4px;
+  }
+  .db-targets > * {
+    flex: 0 0 auto;
+    min-width: 170px;
+  }
+}
+
+/* target list */
+.db-targets {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: sticky;
+  top: 0;
+}
+.db-target {
+  display: flex;
+  /* icon lines up with the name, not the middle of name + version */
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--fg);
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+}
+.db-target:hover {
+  background: var(--bg-hover);
+}
+.db-target.on {
+  background: var(--bg-1);
+  border-color: var(--border);
+}
+.db-target > svg {
+  margin-top: 1px;
+}
+.db-target-text {
+  flex: 1;
+  min-width: 0;
+}
+.db-target-name {
+  font-weight: 600;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.db-target-sub {
+  font-size: 11px;
+  color: var(--fg-2);
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.db-target-sub .badge {
+  font-size: 10px;
+  padding: 0 5px;
+}
+.db-scan-sudo {
+  margin-top: 6px;
+  justify-content: flex-start;
+}
+.db-ic.pg {
+  color: #6aa0e0;
+}
+.db-ic.my {
+  color: #e8a54b;
+}
+.db-ic.rd {
+  color: #e0605a;
+}
+
+/* selected target */
+.db-main {
+  min-width: 0;
+}
+.db-target-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.db-target-head > button,
+.db-target-head > .btn {
+  flex-shrink: 0;
+}
+.db-target-head .grow {
+  flex: 1;
+}
+.db-target-title {
+  min-width: 0;
+  flex: 1;
+}
+.db-target-title > div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.db-target-meta {
+  font-size: 12px;
+  margin-top: 2px;
+}
+.db-tab-body {
+  padding-top: 12px;
+  min-width: 0;
+}
+
+/* shared bits */
+.db-warn {
+  color: var(--warn);
+}
+.db-ver {
+  font-size: 18px;
+}
+.db-w80 {
+  width: 80px;
+}
+.db-right {
+  text-align: right;
+}
+.db-nowrap {
+  white-space: nowrap;
+}
+.db-wrap {
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+.db-pad {
+  padding: 10px 0;
+}
+.db-mt {
+  margin-top: 8px;
+}
+.db-mb {
+  margin-bottom: 12px;
+}
+.db-sub {
+  font-size: 11px;
+  color: var(--fg-2);
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.db-sub.db-warn {
+  color: var(--warn);
+}
+.db-scroll-x {
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+.db-clickable {
+  cursor: pointer;
+}
+tr.db-selected td {
+  background: var(--bg-hover);
+}
+tr.db-row-warn td {
+  background: color-mix(in srgb, var(--warn) 8%, transparent);
+}
+tr.db-row-crit td {
+  background: color-mix(in srgb, var(--err) 10%, transparent);
+}
+.db-actions {
+  white-space: nowrap;
+  width: 1%;
+}
+.db-actions .icon-btn {
+  display: inline-flex;
+}
+.db-query-cell {
+  cursor: pointer;
+  max-width: 460px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.db-confirm-sql {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  max-height: 180px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 8px 0 0;
+}
+.db-info-sec {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+}
+.db-info-sec summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12.5px;
+}
+.db-info-sec[open] summary {
+  margin-bottom: 6px;
+}
+.db-howto {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.db-howto ol {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+.db-howto code,
+.db-slowlog-row code {
+  font-family: var(--mono);
+  background: var(--bg-2);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+.db-slowlog-row {
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.db-slow-q {
+  max-width: 520px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.db-slow-q pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  font-family: var(--mono);
+}
+.db-log {
+  max-height: 60vh;
+}
+
+/* query runner */
+.db-query {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.db-query-bar {
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 0;
+}
+.db-query-bar .select {
+  max-width: 220px;
+}
+.db-write-warn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--warn);
+  border-color: color-mix(in srgb, var(--warn) 45%, var(--border));
+  margin-bottom: 0;
+}
+.db-query-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.db-error {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--err);
+  background: color-mix(in srgb, var(--err) 8%, var(--bg-1));
+  border: 1px solid color-mix(in srgb, var(--err) 35%, var(--border));
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.db-error pre {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--fg);
+}
+.db-error-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.db-stmt-tabs {
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+}
+.db-affected {
+  padding: 10px 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.db-result {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.db-result-bar {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.db-result-bar .grow {
+  flex: 1;
+}
+.db-grid-wrap {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 480px;
+}
+.db-grid td {
+  font-family: var(--mono);
+  max-width: 360px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.db-grid .db-rownum {
+  width: 1%;
+  color: var(--fg-2);
+}
+.db-null {
+  color: var(--fg-2);
+  font-style: italic;
+  opacity: 0.7;
+}
+.db-empty {
+  color: var(--fg-2);
+}
+.db-long {
+  cursor: zoom-in;
+}
+.db-nl {
+  color: var(--fg-2);
+  margin-left: 4px;
+}
+.db-cell-full {
+  max-height: 60vh;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.db-modal-filter {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.db-history .grow {
+  font-size: 12px;
+}
+
+/* redis console */
+.db-redis {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.db-redis-out {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 240px;
+  max-height: 55vh;
+  overflow: auto;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.db-redis-entry {
+  margin-bottom: 10px;
+}
+.db-redis-cmd {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--accent);
+}
+.db-redis-ms {
+  margin-left: auto;
+  font-size: 11px;
+}
+.db-redis-entry pre {
+  margin: 2px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--mono);
+}
+.db-redis-err {
+  color: var(--err);
+}
+.db-redis-input {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.db-redis-input .input {
+  flex: 1;
+}
+.db-inline-chips {
+  display: inline-flex;
+  margin-top: 6px;
+}
+.db-chip-btn {
+  border: none;
+  cursor: pointer;
+  font-family: var(--mono);
+}
+.db-chip-btn:hover {
+  color: var(--fg);
+  background: var(--bg-hover);
+}

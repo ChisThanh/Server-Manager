@@ -1,0 +1,240 @@
+/* Backups module */
+.backup-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 12px;
+}
+.backup-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.backup-card.disabled {
+  opacity: 0.7;
+}
+.backup-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.backup-card-title {
+  flex: 1;
+  min-width: 0;
+}
+.backup-card-title .name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.backup-card-title .muted {
+  font-size: 11px;
+}
+.backup-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.backup-type-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-3);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.backup-type-icon.t-postgres {
+  color: #6ba4e8;
+}
+.backup-type-icon.t-mysql {
+  color: #e8a86b;
+}
+.backup-type-icon.t-volume {
+  color: #5fc1d6;
+}
+.backup-type-icon.t-redis {
+  color: #e86b6b;
+}
+.backup-type-icon.t-custom {
+  color: var(--fg-1);
+}
+.backup-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+}
+.backup-card-grid .k {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--fg-2);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.backup-card-grid .v {
+  font-size: 13px;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.backup-card-grid .v.tone-ok {
+  color: var(--ok);
+}
+.backup-card-grid .v.tone-warn {
+  color: var(--warn);
+}
+.backup-card-grid .v.tone-err {
+  color: var(--err);
+}
+.backup-card-err {
+  font-size: 11px;
+  color: var(--err);
+}
+.backup-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.backup-card-meta .chip.ok {
+  color: var(--ok);
+}
+.backup-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.backup-card-actions .grow {
+  flex: 1;
+}
+.backup-hint-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.backup-hint-row .grow {
+  flex: 1;
+}
+.backup-page .hint-box.warn {
+  border-color: color-mix(in srgb, var(--warn) 40%, var(--border));
+  color: var(--fg-1);
+}
+.backup-page .hint-box.warn svg {
+  color: var(--warn);
+  flex-shrink: 0;
+}
+.backup-page .hint-box.err svg {
+  color: var(--err);
+  flex-shrink: 0;
+}
+.backup-page .hint-box.ok {
+  border-color: color-mix(in srgb, var(--ok) 40%, var(--border));
+}
+.backup-form .segmented {
+  margin-bottom: 12px;
+}
+.backup-form .check {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.backup-types button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.backup-textarea {
+  min-height: 72px;
+  resize: vertical;
+  font-size: 12px;
+  padding-top: 6px;
+  height: auto;
+}
+.backup-sep {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-1);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 16px 0 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.backup-indent {
+  padding-left: 22px;
+}
+.backup-input-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.backup-input-row .input {
+  flex: 1;
+  min-width: 0;
+}
+.backup-preview {
+  font-size: 12px;
+  color: var(--fg-1);
+  margin: -4px 0 8px;
+}
+.backup-preview.err {
+  color: var(--err);
+}
+.backup-small {
+  font-size: 12px;
+}
+.backup-secret {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  user-select: all;
+}
+.backup-save-err {
+  color: var(--err);
+  font-size: 12px;
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.backup-row {
+  cursor: pointer;
+}
+.backup-inline-icon {
+  margin-left: 4px;
+  vertical-align: -1px;
+  color: var(--ok);
+}
+.backup-badge {
+  margin-left: 6px;
+}
+.backup-actions-cell {
+  text-align: right;
+}
+.backup-actions-cell > * {
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.backup-break {
+  word-break: break-all;
+  white-space: normal;
+}
+.backup-browser {
+  max-height: 60vh;
+  overflow: auto;
+}
+.backup-wide {
+  grid-column: 1 / -1;
+}

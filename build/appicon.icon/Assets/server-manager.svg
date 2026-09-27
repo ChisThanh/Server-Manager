@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="1024" height="1024">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g stroke="#26BDB4" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 30 40 L 50 60 L 65 60" />
+    <path d="M 170 40 L 150 60 L 135 60" />
+    <path d="M 35 155 L 65 125 L 75 125" />
+    <path d="M 165 155 L 135 125 L 125 125" />
+  </g>
+  <g fill="#0B233F">
+    <circle cx="30" cy="40" r="5" stroke="#26BDB4" stroke-width="2"/>
+    <circle cx="170" cy="40" r="5" stroke="#26BDB4" stroke-width="2"/>
+    <circle cx="35" cy="155" r="5" stroke="#26BDB4" stroke-width="2"/>
+    <circle cx="165" cy="155" r="5" stroke="#26BDB4" stroke-width="2"/>
+  </g>
+
+  <path d="M100 20 C145 20 165 35 165 80 C165 130 100 180 100 180 C100 180 35 130 35 80 C35 35 55 20 100 20 Z" fill="#ffffff" stroke="#77E5D4" stroke-width="5" filter="url(#glow)"/>
+  <path d="M100 20 C145 20 165 35 165 80 C165 130 100 180 100 180 C100 180 35 130 35 80 C35 35 55 20 100 20 Z" fill="#ffffff" stroke="#0B233F" stroke-width="6"/>
+  <path d="M100 30 C135 30 150 42 150 80 C150 120 100 162 100 162 C100 162 50 120 50 80 C50 42 65 30 100 30 Z" fill="none" stroke="#168E91" stroke-width="4"/>
+
+  <g stroke="#168E91" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+     <polyline points="45 105 60 105 75 90" />
+     <circle cx="45" cy="105" r="2" fill="#fff"/>
+     <polyline points="155 105 140 105 125 90" />
+     <circle cx="155" cy="105" r="2" fill="#fff"/>
+     <polyline points="60 135 75 135 90 120" />
+     <circle cx="60" cy="135" r="2" fill="#fff"/>
+     <polyline points="140 135 125 135 110 120" />
+     <circle cx="140" cy="135" r="2" fill="#fff"/>
+  </g>
+
+  <g stroke="#0B233F" stroke-width="2.5" stroke-linejoin="round">
+    <polygon points="100,136 135,118 135,134 100,152" fill="#0B233F" />
+    <polygon points="65,118 100,136 100,152 65,134" fill="#145A7D" /> 
+    <polygon points="100,100 135,118 100,136 65,118" fill="#43DEC8" />
+    <circle cx="75" cy="128" r="1.5" fill="#43DEC8" stroke="none"/>
+    <circle cx="82" cy="131.5" r="1.5" fill="#43DEC8" stroke="none"/>
+
+    <polygon points="100,110 135,92 135,108 100,126" fill="#0B233F" />
+    <polygon points="65,92 100,110 100,126 65,108" fill="#145A7D" />
+    <polygon points="100,74 135,92 100,110 65,92" fill="#43DEC8" />
+    <polyline points="85,92 100,100" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <circle cx="75" cy="102" r="1.5" fill="#43DEC8" stroke="none"/>
+    <circle cx="82" cy="105.5" r="1.5" fill="#43DEC8" stroke="none"/>
+
+    <polygon points="100,84 135,66 135,82 100,100" fill="#0B233F" />
+    <polygon points="65,66 100,84 100,100 65,82" fill="#145A7D" />
+    <polygon points="100,48 135,66 100,84 65,66" fill="#43DEC8" />
+    <circle cx="75" cy="76" r="1.5" fill="#43DEC8" stroke="none"/>
+    <circle cx="82" cy="79.5" r="1.5" fill="#43DEC8" stroke="none"/>
+  </g>
+</svg>

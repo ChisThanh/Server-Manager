@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Server Manager</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // If the bundle fails before React mounts, show why instead of a blank window.
+      (function () {
+        function show(msg) {
+          var root = document.getElementById("root");
+          if (!root || root.childElementCount > 0) return;
+          root.innerHTML = '<pre style="color:#ff9ca3;padding:24px;white-space:pre-wrap;font:12px monospace"></pre>';
+          root.firstChild.textContent = "Không khởi động được giao diện / Failed to start the UI:\n" + msg;
+        }
+        window.addEventListener("error", function (e) { show((e.error && e.error.stack) || e.message || String(e)); });
+        window.addEventListener("unhandledrejection", function (e) { show(String((e.reason && e.reason.stack) || e.reason)); });
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

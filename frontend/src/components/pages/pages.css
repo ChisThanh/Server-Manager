@@ -1,0 +1,157 @@
+.page {
+  padding-top: 14px;
+}
+.multi-pick {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.multi-pick .ui-select {
+  width: 100%;
+}
+.alert-row.pending {
+  opacity: 0.8;
+}
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+.fleet-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.fleet-card:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-2);
+}
+.fleet-card.crit {
+  border-color: rgba(240, 82, 93, 0.5);
+}
+.fleet-card.warn {
+  border-color: rgba(245, 165, 36, 0.45);
+}
+.fleet-card .fc-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.fleet-card .fc-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fleet-card .fc-sub {
+  font-size: 11.5px;
+  color: var(--fg-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fleet-card .fc-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  font-size: 11.5px;
+}
+.fleet-card .fc-metrics .m {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.fleet-card .fc-metrics .m span {
+  display: flex;
+  justify-content: space-between;
+  color: var(--fg-2);
+}
+.fleet-card .fc-metrics .m b {
+  color: var(--fg);
+  font-weight: 500;
+}
+.fleet-card .fc-foot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--fg-2);
+  flex-wrap: wrap;
+}
+.fleet-group-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 8px;
+  font-weight: 600;
+  color: var(--fg-1);
+}
+.fleet-summary {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.fleet-summary .card {
+  min-width: 130px;
+  flex: 1;
+}
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 12px;
+}
+.setting-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.setting-row:last-child {
+  border-bottom: none;
+}
+.setting-row .txt {
+  flex: 1;
+  min-width: 0;
+}
+.setting-row .txt .d {
+  font-size: 11.5px;
+  color: var(--fg-2);
+  margin-top: 2px;
+}
+.setting-row .ctl {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.setting-row .ctl .input,
+.setting-row .ctl .select {
+  width: 180px;
+}
+.audit-ok {
+  color: var(--ok);
+}
+.audit-bad {
+  color: var(--err);
+}
+td.audit-detail {
+  max-width: 340px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: text;
+}
+
+.page .segmented button {
+  white-space: nowrap;
+  padding: 0 10px;
+}

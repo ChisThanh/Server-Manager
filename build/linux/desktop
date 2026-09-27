@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Server Manager
+Comment=Manage Linux servers over SSH
+# The Exec line includes %u to pass the URL to the application
+Exec=/usr/local/bin/server-manager %u
+Terminal=false
+Type=Application
+Icon=server-manager
+Categories=Utility;
+StartupWMClass=server-manager
+
+ 

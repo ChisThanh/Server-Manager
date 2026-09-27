@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest an idea or improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would it solve?
+      description: Describe the situation and why the current app doesn't handle it well.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to happen?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: How do you handle it today?
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Contributing
+      options:
+        - label: I'd like to help implement this
