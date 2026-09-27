@@ -109,8 +109,8 @@ There are no prebuilt releases yet — build it from source (it takes a couple o
 
 ```bash
 go install github.com/wailsapp/wails/v3/cmd/wails3@latest
-git clone https://github.com/<your-github-username>/server-manager.git
-cd server-manager
+git clone https://github.com/ChisThanh/Server-Manager.git
+cd Server-Manager
 
 wails3 dev        # run in development mode with hot reload
 wails3 build      # build the app into bin/

@@ -12,7 +12,7 @@ priority: "extra"
 maintainer: ${GIT_COMMITTER_NAME} <${GIT_COMMITTER_EMAIL}>
 description: "Manage Linux servers over SSH — nothing to install on the server"
 vendor: "Server Manager contributors"
-homepage: "https://github.com/<your-github-username>/server-manager"
+homepage: "https://github.com/ChisThanh/Server-Manager"
 license: "MIT"
 release: "1"
 

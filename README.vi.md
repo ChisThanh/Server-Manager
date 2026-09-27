@@ -96,8 +96,8 @@ Chưa có bản build sẵn — hãy build từ mã nguồn (mất vài phút).
 
 ```bash
 go install github.com/wailsapp/wails/v3/cmd/wails3@latest
-git clone https://github.com/<your-github-username>/server-manager.git
-cd server-manager
+git clone https://github.com/ChisThanh/Server-Manager.git
+cd Server-Manager
 
 wails3 dev        # chạy chế độ phát triển (hot reload)
 wails3 build      # build ra bin/
